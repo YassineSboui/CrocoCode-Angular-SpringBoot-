@@ -15,6 +15,30 @@
                 formControlName="firstName"
               />
             </div>
+            <div
+              *ngIf="
+                (signUpForm.controls['firstName'].invalid &&
+                  signUpForm.controls['firstName'].touched) ||
+                signUpForm.controls['firstName'].dirty
+              "
+            >
+              <div
+                *ngIf="
+              signUpForm.controls['firstName'].errors?.['required'] 
+            "
+                style="color: red"
+              >
+                First name required
+              </div>
+              <div
+                *ngIf="
+              signUpForm.controls['firstName'].errors?.['minLength'] 
+            "
+                style="color: red"
+              >
+                Invalid First name
+              </div>
+            </div>
             <div class="form-group">
               <input
                 type="text"
@@ -22,6 +46,30 @@
                 placeholder="Last Name"
                 formControlName="lastName"
               />
+            </div>
+            <div
+              *ngIf="
+                (signUpForm.controls['lastName'].invalid &&
+                  signUpForm.controls['lastName'].touched) ||
+                signUpForm.controls['lastName'].dirty
+              "
+            >
+              <div
+                *ngIf="
+              signUpForm.controls['lastName'].errors?.['required'] 
+            "
+                style="color: red"
+              >
+                Last name required
+              </div>
+              <div
+                *ngIf="
+              signUpForm.controls['lastName'].errors?.['minLength'] 
+            "
+                style="color: red"
+              >
+                Invalid last name
+              </div>
             </div>
             <div class="form-group">
               <input
@@ -31,6 +79,31 @@
                 formControlName="email"
               />
             </div>
+            <div
+              *ngIf="
+                (signUpForm.controls['email'].invalid &&
+                  signUpForm.controls['email'].touched) ||
+                signUpForm.controls['email'].dirty
+              "
+            >
+              <div
+                *ngIf="
+              signUpForm.controls['email'].errors?.['required'] 
+            "
+                style="color: red"
+              >
+                Email required
+              </div>
+              <div
+                *ngIf="
+              signUpForm.controls['email'].errors?.['pattern'] 
+            "
+                style="color: red"
+              >
+                Invalid email
+              </div>
+            </div>
+
             <div class="form-group">
               <input
                 type="password"
@@ -38,6 +111,31 @@
                 placeholder="Password"
                 formControlName="password"
               />
+            </div>
+
+            <div
+              *ngIf="
+                (signUpForm.controls['password'].invalid &&
+                  signUpForm.controls['password'].touched) ||
+                signUpForm.controls['password'].dirty
+              "
+            >
+              <div
+                *ngIf="
+              signUpForm.controls['password'].errors?.['required'] 
+            "
+                style="color: red"
+              >
+                password required
+              </div>
+              <div
+                *ngIf="
+              signUpForm.controls['password'].errors?.['password'] 
+            "
+                style="color: red"
+              >
+                Invalid password
+              </div>
             </div>
 
             <div class="form-group">

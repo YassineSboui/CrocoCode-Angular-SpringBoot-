@@ -1,5 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -16,10 +21,22 @@ export class SignupComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.signUpForm = this.formbuilder.group({
-      firstName: [''],
-      lastName: [''],
-      email: [''],
-      password: [''],
+      firstName: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      lastName: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('((?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,30})'),
+        ],
+      ],
     });
   }
   ngOnDestroy(): void {}
