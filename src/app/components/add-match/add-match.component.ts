@@ -12,6 +12,12 @@ export class AddMatchComponent implements OnInit {
 
   addMatch() {
     console.log(this.match);
+    let matcheId = JSON.parse(localStorage.getItem('matcheId') || '1');
+    let matches = JSON.parse(localStorage.getItem('matches') || '[]');
+    this.match.id = matcheId;
+    matches.push(this.match);
+    localStorage.setItem('matches', JSON.stringify(matches));
+    localStorage.setItem('matcheId', JSON.stringify(matcheId + 1));
   }
 
   constructor(private formBuilder: FormBuilder) {}
