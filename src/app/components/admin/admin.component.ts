@@ -23,6 +23,5 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.matches = JSON.parse(localStorage.getItem('matches') || '[]');
-    console.log(this.matches);
   }
 }

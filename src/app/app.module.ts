@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddMatchComponent } from './components/add-match/add-match.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { MatchesComponent } from './components/matches/matches.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AdminComponent } from './components/admin/admin.component';
     LoginComponent,
     AddMatchComponent,
     AdminComponent,
+    MatchesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
