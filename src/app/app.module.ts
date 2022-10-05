@@ -10,6 +10,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddMatchComponent } from './components/add-match/add-match.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ContactComponent,
     SignupComponent,
     LoginComponent,
+    AddMatchComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
