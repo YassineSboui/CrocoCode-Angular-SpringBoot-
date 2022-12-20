@@ -5,6 +5,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthentificationService } from 'src/app/services/authentification.service';
+import { SharedFunctionService } from 'src/app/services/shared-function.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,23 +17,23 @@ import {
 export class SignupComponent implements OnInit, OnDestroy {
   signUpForm: FormGroup;
 
-  signUp(obj: any) {
-    console.log(obj.value);
-  }
-  constructor(private formbuilder: FormBuilder) {}
+  constructor(
+    private _formBuilder: FormBuilder,
+    private router: Router,
+    private authentificationService: AuthentificationService,
+    private sharedFunctionService: SharedFunctionService
+  ) {}
 
   ngOnInit(): void {
-    this.signUpForm = this.formbuilder.group({
-      firstName: new FormControl('', [
+    this.signUpForm = this._formBuilder.group({
+      prenom: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
       ]),
-      lastName: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-      ]),
+      nom: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      cin: new FormControl('', [Validators.required, Validators.email]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: [
+      mot_de_passe: [
         '',
         [
           Validators.required,
@@ -39,5 +42,17 @@ export class SignupComponent implements OnInit, OnDestroy {
       ],
     });
   }
+
+  signUp() {
+    this.authentificationService
+      .SignUpClient(this.signUpForm.value)
+      .subscribe((res) => {
+        if (res) {
+          this.router.navigate(['']);
+        }
+        this.sharedFunctionService.sendClickEvent();
+      });
+  }
+
   ngOnDestroy(): void {}
 }

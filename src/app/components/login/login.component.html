@@ -6,15 +6,16 @@
     <div class="container py-5" style="width: 50vw">
       <div class="row">
         <div class="col-lg">
-          <form action="#">
+          <form  [formGroup]="LoginFormGroup">
             <div class="form-group">
-              <input type="mail" class="form-control" placeholder="Email" />
+              <input type="mail" class="form-control" placeholder="Email" formControlName="email"/>
             </div>
             <div class="form-group">
               <input
                 type="password"
                 class="form-control"
                 placeholder="Password"
+                formControlName="mot_de_passe"
               />
             </div>
 
@@ -23,6 +24,7 @@
                 type="submit"
                 class="btn btn-primary py-3 px-5"
                 value="Login"
+                (click)="seConnecter()"
               />
             </div>
           </form>

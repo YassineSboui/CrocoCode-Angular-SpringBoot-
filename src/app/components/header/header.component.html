@@ -26,10 +26,21 @@
               <a routerLink="" class="nav-link">Home</a>
             </li>
             <li><a href="addMatch" class="nav-link">Matches</a></li>
-            <li><a href="admin" class="nav-link">Admin</a></li>
+            <li><a href="admin" class="nav-link" *ngIf="isAdmin">Admin</a></li>
             <li><a routerLink="contact" class="nav-link">Contact</a></li>
-            <li><a routerLink="signup" class="nav-link">Sign Up</a></li>
-            <li><a routerLink="login" class="nav-link">Login</a></li>
+            <li>
+              <a routerLink="signup" class="nav-link" *ngIf="!isLogedIn"
+                >Sign Up</a
+              >
+            </li>
+            <li>
+              <a routerLink="login" class="nav-link" *ngIf="!isLogedIn"
+                >Login</a
+              >
+            </li>
+            <li (click)="deconnexion()">
+              <a class="nav-link" *ngIf="isLogedIn">Logout</a>
+            </li>
           </ul>
         </nav>
 
