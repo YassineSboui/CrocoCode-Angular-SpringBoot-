@@ -7,6 +7,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { AddMatchComponent } from './components/add-match/add-match.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { MatchesComponent } from './components/matches/matches.component';
+import { TicketsComponent } from './components/tickets/tickets.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'addMatch', component: AddMatchComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'matches', component: MatchesComponent },
+  { path: 'tickets', component: TicketsComponent },
 ];
 
 @NgModule({

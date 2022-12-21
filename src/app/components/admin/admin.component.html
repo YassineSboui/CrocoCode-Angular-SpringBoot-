@@ -70,24 +70,28 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Team 1</th>
-                <th scope="col">Team 2</th>
-                <th scope="col">Score Team 1</th>
-                <th scope="col">Score Team 2</th>
+                <th scope="col">equipe1 1</th>
+                <th scope="col">equipe2 2</th>
+                <th scope="col">datematch</th>
+                <th scope="col">heurematch</th>
+                <th scope="col">lieumatch</th>
+                <th scope="col">nbplacerestant</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let item of matches">
-                <th scope="row">{{ item.id }}</th>
-                <td>{{ item.team1 }}</td>
-                <td>{{ item.team2 }}</td>
-                <td>{{ item.scoreTeam1 }}</td>
-                <td>{{ item.scoreTeam2 }}</td>
+                <th scope="row">{{ item._id }}</th>
+                <td>{{ item.equipe1 }}</td>
+                <td>{{ item.equipe2 }}</td>
+                <td>{{ item.datematch }}</td>
+                <td>{{ item.heurematch }}</td>
+                <td>{{ item.lieumatch }}</td>
+                <td>{{ item.nbplacerestant }}</td>
                 <td>
                   <button
                     type="button"
                     class="btn btn-primary py-3 px-5"
-                    (click)="delete(item.id)"
+                    (click)="delete(item._id)"
                   >
                     delete
                   </button>

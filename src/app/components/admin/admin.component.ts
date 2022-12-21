@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatchesService } from 'src/app/services/matches.service';
 
 @Component({
   selector: 'app-admin',
@@ -9,19 +10,22 @@ export class AdminComponent implements OnInit {
   matches: any;
 
   delete(id: string) {
-    let pos;
-    for (let index = 0; index < this.matches.length; index++) {
-      if (this.matches[index].id == id) {
-        pos = index;
+    this.matchesService.deleteMatch(id).subscribe((res) => {
+      for (let index = 0; index < this.matches.length; index++) {
+        if (this.matches[index]._id == id) {
+          pos = index;
+        }
       }
-    }
-    this.matches.splice(pos, 1);
-    localStorage.setItem('matches', JSON.stringify(this.matches));
+      this.matches.splice(pos, 1);
+    });
+    let pos;
   }
 
-  constructor() {}
+  constructor(private matchesService: MatchesService) {}
 
   ngOnInit(): void {
-    this.matches = JSON.parse(localStorage.getItem('matches') || '[]');
+    this.matchesService.getAllMatchs().subscribe((res) => {
+      this.matches = res;
+    });
   }
 }

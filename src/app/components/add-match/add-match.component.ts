@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatchesService } from 'src/app/services/matches.service';
 
 @Component({
   selector: 'app-add-match',
@@ -12,22 +13,24 @@ export class AddMatchComponent implements OnInit {
 
   addMatch() {
     console.log(this.match);
-    let matcheId = JSON.parse(localStorage.getItem('matcheId') || '1');
-    let matches = JSON.parse(localStorage.getItem('matches') || '[]');
-    this.match.id = matcheId;
-    matches.push(this.match);
-    localStorage.setItem('matches', JSON.stringify(matches));
-    localStorage.setItem('matcheId', JSON.stringify(matcheId + 1));
+    this.matchesService.createMatch(this.match).subscribe((res) => {
+      alert('match Ajoute');
+    });
   }
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private matchesService: MatchesService
+  ) {}
 
   ngOnInit(): void {
     this.addMatchForm = this.formBuilder.group({
-      team1: [''],
-      team2: [''],
-      scoreTeam1: [''],
-      scoreTeam2: [''],
+      equipe1: [''],
+      equipe2: [''],
+      datematch: [''],
+      heurematch: [''],
+      lieumatch: [''],
+      nbplacerestant: [''],
     });
   }
 }

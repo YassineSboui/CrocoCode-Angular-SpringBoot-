@@ -25,8 +25,10 @@
             <li class="active">
               <a routerLink="" class="nav-link">Home</a>
             </li>
-            <li><a href="addMatch" class="nav-link">Matches</a></li>
-            <li><a href="admin" class="nav-link" *ngIf="isAdmin">Admin</a></li>
+            <li><a routerLink="addMatch" class="nav-link">Matches</a></li>
+            <li>
+              <a routerLink="admin" class="nav-link" *ngIf="isAdmin">Admin</a>
+            </li>
             <li><a routerLink="contact" class="nav-link">Contact</a></li>
             <li>
               <a routerLink="signup" class="nav-link" *ngIf="!isLogedIn"

@@ -12,7 +12,7 @@
                 type="text"
                 class="form-control"
                 placeholder="Team 1"
-                [(ngModel)]="match.team1"
+                [(ngModel)]="match.equipe1"
                 name="teamOne"
               />
             </div>
@@ -22,26 +22,44 @@
                 type="text"
                 class="form-control"
                 placeholder="Team 2"
-                [(ngModel)]="match.team2"
+                [(ngModel)]="match.equipe2"
                 name="teamTwo"
               />
             </div>
             <div class="form-group">
               <input
-                type="number"
+                type="text"
                 class="form-control"
-                placeholder="Score Team 1"
-                [(ngModel)]="match.scoreTeam1"
-                name="scoreTeamOne"
+                placeholder="date match"
+                [(ngModel)]="match.datematch"
+                name="datematch"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="heure match"
+                [(ngModel)]="match.heurematch"
+                name="heurematch"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="lieu match"
+                [(ngModel)]="match.lieumatch"
+                name="lieumatch"
               />
             </div>
             <div class="form-group">
               <input
                 type="number"
                 class="form-control"
-                placeholder="Score Team 2"
-                [(ngModel)]="match.scoreTeam2"
-                name="scoreTeamTwo"
+                placeholder="nb place restant"
+                [(ngModel)]="match.nbplacerestant"
+                name="nbplacerestant"
               />
             </div>
             <div class="form-group">

@@ -13,6 +13,7 @@ import { AddMatchComponent } from './components/add-match/add-match.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { MatchesComponent } from './components/matches/matches.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TicketsComponent } from './components/tickets/tickets.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     AddMatchComponent,
     AdminComponent,
     MatchesComponent,
+    TicketsComponent,
   ],
   imports: [
     BrowserModule,
